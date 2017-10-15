@@ -21,16 +21,25 @@
         <option>Genius</option>
       </select>
       <button v-on:click="submitIdea" v-bind:style="mainSubmitButton">Enter Idea</button>
+      <div class="all-ideas-container">
+        <each-idea-container v-if="ideas.length">
+
+        </each-idea-container>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import EachIdeaContainer from './EachIdeaContainer';
 import styles from '../styles/Landing-styles';
 import Idea from '../models/Idea';
 
 export default {
   name: 'Landing',
+  components: {
+    EachIdeaContainer,
+  },
   data() {
     return {
       msg: 'Enter a new idea',
