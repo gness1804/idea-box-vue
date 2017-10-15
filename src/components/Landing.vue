@@ -27,6 +27,7 @@
 
 <script>
 import styles from '../styles/Landing-styles';
+import Idea from '../models/Idea';
 
 export default {
   name: 'Landing',
@@ -44,7 +45,11 @@ export default {
   },
   methods: {
     submitIdea: function () {
-
+      this.ideas.push(new Idea(
+        this.name,
+        this.body,
+        this.quality,
+      ));
     },
   },
 };
