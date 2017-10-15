@@ -1,7 +1,18 @@
 <template>
   <div class="landing">
     <h2>{{ msg }}</h2>
-
+    <div class="idea-input-area">
+      <input
+        type="text"
+        placeholder="Idea Name"
+        v-model="name"
+      />
+      <input
+        type="text"
+        placeholder="Idea Body"
+        v-model="body"
+      />
+    </div>
   </div>
 </template>
 
@@ -11,12 +22,15 @@ export default {
   data() {
     return {
       msg: 'Enter a new idea',
+      ideas: [],
+      name: '',
+      body: '',
+      quality: 'swill',
     };
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>
