@@ -45,10 +45,15 @@ export default {
   },
   methods: {
     submitIdea: function () {
-      this.ideas.push(new Idea(
-        this.name,
-        this.body,
-        this.quality,
+      const { name, body, quality, ideas } = this;
+      if (!name || !body) {
+        alert('Error: Both text fields must be complete.');
+        return;
+      }
+      ideas.push(new Idea(
+        name,
+        body,
+        quality,
       ));
     },
   },
