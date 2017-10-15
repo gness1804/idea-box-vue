@@ -44,6 +44,11 @@ export default {
     };
   },
   methods: {
+    resetInputFields: function () {
+      this.name = '';
+      this.body = '';
+      this.quality = 'Swill';
+    },
     submitIdea: function () {
       const { name, body, quality, ideas } = this;
       if (!name || !body) {
@@ -55,6 +60,7 @@ export default {
         body,
         quality,
       ));
+      this.resetInputFields();
     },
   },
 };
