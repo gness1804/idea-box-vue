@@ -21,9 +21,12 @@
         <option>Genius</option>
       </select>
       <button v-on:click="submitIdea" v-bind:style="mainSubmitButton">Enter Idea</button>
-      <div class="all-ideas-container">
-        <each-idea-container v-if="ideas.length">
-
+      <div class="all-ideas-container" v-if="ideas.length">
+        <each-idea-container
+          v-for="idea of ideas"
+          v-bind:key="idea.id"
+          v-bind:idea="idea"
+        >
         </each-idea-container>
       </div>
     </div>
