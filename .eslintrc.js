@@ -27,6 +27,7 @@ module.exports = {
     'no-console': 'off',
     'func-names': 'off',
     'object-shorthand': 'off',
+    'no-alert': 'off',
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       'js': 'never',
