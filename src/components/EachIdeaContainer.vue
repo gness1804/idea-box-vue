@@ -1,12 +1,17 @@
 <template>
   <div class="each-idea-container">
-    <p>I am the Each Idea Container.</p>
+    <h3>{{idea.name}}</h3>
+    <p>{{idea.body}}</p>
+    <p>Quality: {{idea.quality}}</p>
   </div>
 </template>
 
 <script>
 export default {
   props: ['idea'],
+  data() {
+
+  },
 };
 </script>
 
