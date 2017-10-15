@@ -12,6 +12,13 @@
         placeholder="Idea Body"
         v-model="body"
       />
+      <p>Quality:</p>
+      <select v-model="quality">
+        <option>Swill</option>
+        <option>Plausible</option>
+        <option>Genius</option>
+      </select>
+      <button v-on:click="submitIdea">Enter Idea</button>
     </div>
   </div>
 </template>
@@ -25,8 +32,13 @@ export default {
       ideas: [],
       name: '',
       body: '',
-      quality: 'swill',
+      quality: 'Swill',
     };
+  },
+  methods: {
+    submitIdea: function () {
+
+    },
   },
 };
 </script>
