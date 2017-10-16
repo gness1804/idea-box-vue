@@ -8,9 +8,9 @@
 
 <script>
 export default {
-  props: ['idea'],
-  data() {
-
+  props: {
+    idea: Object,
+    required: true,
   },
 };
 </script>
