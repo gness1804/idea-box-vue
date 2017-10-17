@@ -27,6 +27,7 @@
           v-bind:key="idea.id"
           v-bind:idea="idea"
           v-on:removeItem="removeItem"
+          v-on:augmentQuality="augmentQuality"
         >
         </each-idea-container>
       </div>
@@ -62,6 +63,10 @@ export default {
     };
   },
   methods: {
+    // re-add idea and quality as args below
+    augmentQuality: function () {
+
+    },
     removeItem: function (id) {
       this.ideas = this.ideas.filter(idea => idea.id !== id);
     },

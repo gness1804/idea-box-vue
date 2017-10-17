@@ -3,10 +3,10 @@
     <h3 v-bind:style="h3">{{name}}</h3>
     <p>{{body}}</p>
     <p><span v-bind:style="qualityText">Quality</span>: {{quality}}</p>
-    <div>
-
+    <div v-bind:style="buttonsContainer">
+      <button v-on:click="removeItem">X</button>
+      <button v-on:click="augmentQuality">+</button>
     </div>
-    <button v-on:click="removeItem">X</button>
   </div>
 </template>
 
@@ -28,9 +28,13 @@ export default {
       quality: this.idea.quality,
       h3: styles.h3,
       qualityText: styles.qualityText,
+      buttonsContainer: styles.buttonsContainer,
     };
   },
   methods: {
+    augmentQuality: function () {
+      this.$emit('augmentQuality', this.id, this.quality);
+    },
     removeItem: function () {
       this.$emit('removeItem', this.id);
     },
