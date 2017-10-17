@@ -9,6 +9,10 @@ const styles = {
     fontSize: '20px',
     padding: '10px',
   },
+  noIdeasTextStyles: {
+    fontSize: '28px',
+    margin: '60px auto',
+  },
   select: {
     display: 'block',
     margin: '20px auto',

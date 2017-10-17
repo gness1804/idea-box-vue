@@ -30,6 +30,9 @@
         >
         </each-idea-container>
       </div>
+      <div v-else>
+        <p v-bind:style="noIdeasTextStyles">{{noIdeasText}}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -54,6 +57,8 @@ export default {
       inputText: styles.inputText,
       select: styles.select,
       mainSubmitButton: styles.mainSubmitButton,
+      noIdeasText: 'No ideas yet. Please enter one now!',
+      noIdeasTextStyles: styles.noIdeasTextStyles,
     };
   },
   methods: {

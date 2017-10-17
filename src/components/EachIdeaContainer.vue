@@ -3,6 +3,9 @@
     <h3 v-bind:style="h3">{{name}}</h3>
     <p>{{body}}</p>
     <p><span v-bind:style="qualityText">Quality</span>: {{quality}}</p>
+    <div>
+
+    </div>
     <button v-on:click="removeItem">X</button>
   </div>
 </template>
