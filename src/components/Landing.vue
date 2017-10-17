@@ -26,6 +26,7 @@
           v-for="idea of ideas"
           v-bind:key="idea.id"
           v-bind:idea="idea"
+          v-on:removeItem="removeItem"
         >
         </each-idea-container>
       </div>
@@ -56,6 +57,9 @@ export default {
     };
   },
   methods: {
+    removeItem: function (id) {
+      this.ideas = this.ideas.filter(idea => idea.id !== id);
+    },
     resetInputFields: function () {
       this.name = '';
       this.body = '';
