@@ -6,6 +6,7 @@
     <div v-bind:style="buttonsContainer">
       <button v-on:click="removeItem">X</button>
       <button v-on:click="augmentQuality">+</button>
+      <button v-on:click="decrementQuality">-</button>
     </div>
   </div>
 </template>
@@ -30,6 +31,9 @@ export default {
   methods: {
     augmentQuality: function () {
       this.$emit('augmentQuality', this.idea);
+    },
+    decrementQuality: function () {
+      this.$emit('decrementQuality', this.idea);
     },
     removeItem: function () {
       this.$emit('removeItem', this.idea.id);
