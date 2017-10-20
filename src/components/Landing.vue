@@ -1,3 +1,4 @@
+
 <template>
   <div class="landing">
     <h2>{{ msg }}</h2>
@@ -27,17 +28,25 @@
           v-bind:key="idea.id"
           v-bind:idea="idea"
           v-on:removeItem="removeItem"
+          v-on:augmentQuality="augmentQuality"
+          v-on:decrementQuality="decrementQuality"
         >
         </each-idea-container>
+      </div>
+      <div v-else>
+        <p v-bind:style="noIdeasTextStyles">{{noIdeasText}}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+/* @flow */
 import EachIdeaContainer from './EachIdeaContainer';
 import styles from '../styles/Landing-styles';
 import Idea from '../models/Idea';
+import upQuality from '../helpers/upQuality';
+import downQuality from '../helpers/downQuality';
 
 export default {
   name: 'Landing',
@@ -54,9 +63,21 @@ export default {
       inputText: styles.inputText,
       select: styles.select,
       mainSubmitButton: styles.mainSubmitButton,
+      noIdeasText: 'No ideas yet. Please enter one now!',
+      noIdeasTextStyles: styles.noIdeasTextStyles,
     };
   },
   methods: {
+    augmentQuality: async function (idea) {
+      const newIdea = { ...idea, quality: upQuality(idea.quality) };
+      await this.removeItem(idea.id);
+      this.ideas.push(newIdea);
+    },
+    decrementQuality: async function (idea) {
+      const newIdea = { ...idea, quality: downQuality(idea.quality) };
+      await this.removeItem(idea.id);
+      this.ideas.push(newIdea);
+    },
     removeItem: function (id) {
       this.ideas = this.ideas.filter(idea => idea.id !== id);
     },
