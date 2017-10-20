@@ -42,6 +42,7 @@
 import EachIdeaContainer from './EachIdeaContainer';
 import styles from '../styles/Landing-styles';
 import Idea from '../models/Idea';
+import upQuality from '../helpers/upQuality';
 
 export default {
   name: 'Landing',
@@ -64,7 +65,7 @@ export default {
   },
   methods: {
     augmentQuality: async function (idea) {
-      const newIdea = { ...idea, quality: 'Plausible' };
+      const newIdea = { ...idea, quality: upQuality(idea.quality) };
       await this.removeItem(idea.id);
       this.ideas.push(newIdea);
     },
