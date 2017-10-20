@@ -1,4 +1,5 @@
-const upQuality = (quality) => {
+// @flow
+const upQuality = (quality: string): string => {
   let result;
   if (quality === 'Swill') {
     result = 'Plausible';

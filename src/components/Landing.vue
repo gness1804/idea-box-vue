@@ -1,3 +1,4 @@
+
 <template>
   <div class="landing">
     <h2>{{ msg }}</h2>
@@ -39,6 +40,7 @@
 </template>
 
 <script>
+/* @flow */
 import EachIdeaContainer from './EachIdeaContainer';
 import styles from '../styles/Landing-styles';
 import Idea from '../models/Idea';
