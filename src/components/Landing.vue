@@ -63,9 +63,10 @@ export default {
     };
   },
   methods: {
-    // re-add idea and quality as args below
-    augmentQuality: function () {
-
+    augmentQuality: async function (idea) {
+      const newIdea = { ...idea, quality: 'Plausible' };
+      await this.removeItem(idea.id);
+      this.ideas.push(newIdea);
     },
     removeItem: function (id) {
       this.ideas = this.ideas.filter(idea => idea.id !== id);

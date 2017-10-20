@@ -1,8 +1,8 @@
 <template>
   <div class="each-idea-container">
-    <h3 v-bind:style="h3">{{name}}</h3>
-    <p>{{body}}</p>
-    <p><span v-bind:style="qualityText">Quality</span>: {{quality}}</p>
+    <h3 v-bind:style="h3">{{idea.name}}</h3>
+    <p>{{idea.body}}</p>
+    <p><span v-bind:style="qualityText">Quality</span>: {{idea.quality}}</p>
     <div v-bind:style="buttonsContainer">
       <button v-on:click="removeItem">X</button>
       <button v-on:click="augmentQuality">+</button>
@@ -22,10 +22,6 @@ export default {
   },
   data() {
     return {
-      id: this.idea.id,
-      name: this.idea.name,
-      body: this.idea.body,
-      quality: this.idea.quality,
       h3: styles.h3,
       qualityText: styles.qualityText,
       buttonsContainer: styles.buttonsContainer,
@@ -33,10 +29,10 @@ export default {
   },
   methods: {
     augmentQuality: function () {
-      this.$emit('augmentQuality', this.id, this.quality);
+      this.$emit('augmentQuality', this.idea);
     },
     removeItem: function () {
-      this.$emit('removeItem', this.id);
+      this.$emit('removeItem', this.idea.id);
     },
   },
 };
