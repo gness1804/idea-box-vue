@@ -34,7 +34,7 @@
         </each-idea-container>
       </div>
       <div v-else>
-        <p v-bind:style="noIdeasTextStyles">{{noIdeasText}}</p>
+        <p v-bind:style="noIdeasTextStyles" class="no-ideas-text">{{noIdeasText}}</p>
       </div>
     </div>
   </div>
