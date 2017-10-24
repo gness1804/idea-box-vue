@@ -1,8 +1,8 @@
 <template>
   <div class="each-idea-container">
-    <h3 v-bind:style="h3">{{idea.name}}</h3>
-    <p>{{idea.body}}</p>
-    <p><span v-bind:style="qualityText">Quality</span>: {{idea.quality}}</p>
+    <h3 v-bind:style="h3" class="name">{{idea.name}}</h3>
+    <p class="body">{{idea.body}}</p>
+    <p class="quality"><span v-bind:style="qualityText">Quality</span>: {{idea.quality}}</p>
     <div v-bind:style="buttonsContainer">
       <button v-on:click="removeItem">X</button>
       <button v-on:click="augmentQuality">+</button>
